@@ -1,0 +1,44 @@
+.navbar {
+    background-color: transparent;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    }
+  
+    .links {
+      flex: 1; /* ทำให้ส่วนของ links ขยายตามพื้นที่ที่เหลือ */
+      overflow-y: auto; /* เปิดการเลื่อนแนวตั้งเมื่อเนื้อหายาวเกิน */
+      max-height: calc(100vh - 80px); /* ลดความสูงโดยเว้นที่ให้ footer */
+  }
+  .navLink {
+    flex: 1; /* ทำให้ส่วนของ links ขยายตามพื้นที่ที่เหลือ */
+    overflow-y: auto; /* เปิดการเลื่อนแนวตั้งเมื่อเนื้อหายาวเกิน */
+    max-height: calc(100vh - 80px); /* ลดความสูงโดยเว้นที่ให้ footer */
+  }
+  .footer {
+    margin-left: calc(var(--mantine-spacing-md) * -1);
+    margin-right: calc(var(--mantine-spacing-md) * -1);
+    border-top: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+
+  :root {
+    --tt-orange-50: #fef3ee;
+    --tt-orange-100: #fde4d7;
+    --tt-orange-200: #f9c5af;
+    --tt-orange-300: #f59d7c;
+    --tt-orange-400: #f06642;
+    --tt-orange-500: #ec4423;
+    --tt-orange-600: #de2c18;
+    --tt-orange-700: #b81e16;
+    --tt-orange-800: #921b1a;
+    --tt-orange-900: #761918;
+    --tt-orange-950: #400a0b;
+}
+
+
+

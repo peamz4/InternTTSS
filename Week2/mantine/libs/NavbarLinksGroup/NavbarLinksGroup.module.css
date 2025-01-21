@@ -1,0 +1,47 @@
+.control {
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    color: var(--mantine-color-text);
+    font-size: 18px;
+  
+    @mixin hover {
+      background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+      color: light-dark(var(--mantine-color-black), var(--mantine-color-dark-0));
+    }
+  }
+  
+  .link {
+    font-weight: 500;
+    display: block;
+    text-decoration: none;
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    padding-left: var(--mantine-spacing-md);
+    margin-left: var(--mantine-spacing-xl);
+    font-size: 16px;
+  
+    @mixin hover {
+      background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+      color: light-dark(var(--mantine-color-black), var(--mantine-color-dark-0));
+      
+    }
+  }
+  
+  .chevron {
+    transition: transform 200ms ease;
+  }
+
+  :root {
+    --tt-orange-50: #fef3ee;
+    --tt-orange-100: #fde4d7;
+    --tt-orange-200: #f9c5af;
+    --tt-orange-300: #f59d7c;
+    --tt-orange-400: #f06642;
+    --tt-orange-500: #ec4423;
+    --tt-orange-600: #de2c18;
+    --tt-orange-700: #b81e16;
+    --tt-orange-800: #921b1a;
+    --tt-orange-900: #761918;
+    --tt-orange-950: #400a0b;
+}
