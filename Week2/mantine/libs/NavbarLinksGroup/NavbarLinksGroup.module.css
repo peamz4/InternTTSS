@@ -45,3 +45,33 @@
     --tt-orange-900: #761918;
     --tt-orange-950: #400a0b;
 }
+
+.link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure the color inherits from the parent */
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+/* NavbarLinksGroup.module.css */
+
+.link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure the color inherits from the parent */
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+  text-decoration: none; /* Keep no underline on hover/focus */
+}

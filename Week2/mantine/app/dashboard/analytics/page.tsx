@@ -9,7 +9,7 @@ import { StatsGroup } from '@/libs/StatsGroup/StatsGroup';
 import { useState } from 'react';
 import { IconSearch, IconSun, IconMoon } from '@tabler/icons-react';
 
-function Demo() {
+function Analytics() {
   const [opened, { toggle }] = useDisclosure();
   const [username, setUsername] = useState('Pirawish Pathumngern');
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -89,4 +89,4 @@ function Demo() {
   );
 }
 
-export default Demo;
+export default Analytics;

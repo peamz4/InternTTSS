@@ -17,6 +17,9 @@
   color: black;
   font-size: 24px;
   font-weight: bold;
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 /* Navbar */
@@ -111,13 +114,26 @@ to {
 }
 
 .searchBar {
-  width: 200px;
+  width: 400px;
+  @media (max-width: 768px) {
+    width: 220px;
+    padding-left: 20px;
+    padding-right: 5px;
+  }
 }
 
 .languageSelect {
-  width: 120px;
+  -webkit-appearance: none;  /* For Chrome, Safari, and newer Edge */
+  -moz-appearance: none;     /* For Firefox */
+  appearance: none;          /* Standard syntax */
+  border: 1px solid #ccc;    /* Optional: border styling */
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
+
 
 .themeToggle {
   cursor: pointer;
 }
+

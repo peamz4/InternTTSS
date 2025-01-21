@@ -9,7 +9,7 @@ import { StatsGrid } from '@/libs/StatsGrid/StatsGrid';
 import { StatsGroup } from '@/libs/StatsGroup/StatsGroup';
 import { useState } from 'react';
 
-function Previous() {
+function Setting() {
   const [opened, { toggle }] = useDisclosure();
   const [username, setUsername] = useState('Pirawish Pathumngern');
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -17,9 +17,7 @@ function Previous() {
 
   const breadcrumbItems = [
     { title: 'Home', href: '/' },
-    { title: 'Dashboard', href: '/dashboard' },
-    { title: 'Releases', href: '/dashboard/releases' },
-    { title: 'Previous', href: '/dashboard/releases/previous' },
+    { title: 'Settings', href: '/settings' },
   ].map((item) => (
     <Anchor href={item.href} key={item.href} className={styles.breadcrumbLink}>
       {item.title}
@@ -80,7 +78,7 @@ function Previous() {
 
       <AppShell.Main style={{ backgroundColor: '#fde4d7' }}>
         <div className={styles.mainContent} style={{ display: "flex", flexDirection: "column", gap: '20px' }}>
-          <h1>Precious Release</h1>
+          <h1>Settings</h1>
           <Breadcrumbs separator=">" mt="md">{breadcrumbItems}</Breadcrumbs>
           <hr style={{ border: '1px solid #ccc', width: '100%', marginTop: -5, borderColor: '#b81e16' }} />
 
@@ -90,4 +88,4 @@ function Previous() {
   );
 }
 
-export default Previous;
+export default Setting;

@@ -42,3 +42,19 @@
 
 
 
+.link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure the color inherits from the parent */
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}

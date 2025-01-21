@@ -9,11 +9,14 @@ import { StatsGrid } from '@/libs/StatsGrid/StatsGrid';
 import { StatsGroup } from '@/libs/StatsGroup/StatsGroup';
 import { useState } from 'react';
 
-function Demo() {
+function Dashboard() {
   const [opened, { toggle }] = useDisclosure();
   const [username, setUsername] = useState('Pirawish Pathumngern');
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const isDarkMode = colorScheme === 'dark';
+
+  // Sample data for the chart
+  const chartData = [100, 200, 150, 80, 120];
 
   const breadcrumbItems = [
     { title: 'Home', href: '/' },
@@ -83,10 +86,12 @@ function Demo() {
           <hr style={{ border: '1px solid #ccc', width: '100%', marginTop: -5, borderColor: '#b81e16' }} />
           <StatsGrid />
           <StatsGroup />
+           {/* Simple Bar Chart */}
+           
         </div>
       </AppShell.Main>
     </AppShell>
   );
 }
 
-export default Demo;
+export default Dashboard;

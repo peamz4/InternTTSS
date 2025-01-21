@@ -21,23 +21,13 @@ const mockdata = [
     label: 'Releases',
     icon: IconCalendarStats,
     links: [
-      { label: 'Upcoming releases', link: '/' },
-      { label: 'Previous releases', link: '/' },
-      { label: 'Releases schedule', link: '/' },
+      { label: 'Upcoming releases', link: '/dashboard/releases/upcoming' },
+      { label: 'Previous releases', link: '/dashboard/releases/previous' },
+      { label: 'Releases schedule', link: '/dashboard/releases/schedule' },
     ],
   },
 
-  { label: 'Contracts', icon: IconFileAnalytics },
-  { label: 'Settings', icon: IconAdjustments },
-  {
-    label: 'Security',
-    icon: IconLock,
-    links: [
-      { label: 'Enable 2FA', link: '/' },
-      { label: 'Change password', link: '/' },
-      { label: 'Recovery codes', link: '/' },
-    ],
-  },
+  { label: 'Contracts', icon: IconFileAnalytics, link: '/dashboard/contracts' },
 ];
 
 export function NavbarNested() {
