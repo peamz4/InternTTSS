@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { IconCalendarStats, IconChevronRight } from '@tabler/icons-react';
 import { Box, Collapse, Group, Text, ThemeIcon, UnstyledButton } from '@mantine/core';
-import Link from 'next/link'; // Import Link from Next.js
-import classes from './NavbarLinksGroup.module.scss';
+import classes from './NavbarLinksGroup.module.css';
 
 interface LinksGroupProps {
-  icon: React.ElementType;
+  icon: React.FC<React.ComponentProps<'svg'>>;
   label: string;
   initiallyOpened?: boolean;
   links?: { label: string; link: string }[];
@@ -15,11 +14,15 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksG
   const hasLinks = Array.isArray(links);
   const [opened, setOpened] = useState(initiallyOpened || false);
   const items = (hasLinks ? links : []).map((link) => (
-    <Link key={link.label} href={link.link}>
-      <Text className={classes.link}>
-        {link.label}
-      </Text>
-    </Link>
+    <Text<'a'>
+      component="a"
+      className={classes.link}
+      href={link.link}
+      key={link.label}
+      onClick={(event) => event.preventDefault()}
+    >
+      {link.label}
+    </Text>
   ));
 
   return (
@@ -28,7 +31,7 @@ export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksG
         <Group justify="space-between" gap={0}>
           <Box style={{ display: 'flex', alignItems: 'center' }}>
             <ThemeIcon variant="light" size={30}>
-              <Icon size={18} />
+              <Icon width={18} height={18} />
             </ThemeIcon>
             <Box ml="md">{label}</Box>
           </Box>
@@ -51,9 +54,9 @@ const mockdata = {
   label: 'Releases',
   icon: IconCalendarStats,
   links: [
-    { label: 'Upcoming releases', link: '/dashboard/releases/upcoming' },
-    { label: 'Previous releases', link: '/dashboard/releases/previous' },
-    { label: 'Releases schedule', link: '/dashboard/releases/schedule' },
+    { label: 'Upcoming releases', link: '/' },
+    { label: 'Previous releases', link: '/' },
+    { label: 'Releases schedule', link: '/' },
   ],
 };
 

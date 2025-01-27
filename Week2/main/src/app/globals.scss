@@ -26,3 +26,17 @@
 
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: #ededed;
+  }
+}
+
+.p {
+  text-decoration: none;
+}
