@@ -16,6 +16,7 @@ import classes from './NavbarNested.module.css';
 
 const mockdata: { label: string; link?: string; icon: React.ElementType; initiallyOpened?: boolean; links?: { label: string; link: string; }[] }[] = [
   { label: 'Dashboard', link: '/admin/dashboard', icon: IconGauge },
+  { label: 'Analytics', icon: IconPresentationAnalytics, link: '/analytics' },
   {
     label: 'Market news',
     icon: IconNotes,
@@ -36,9 +37,6 @@ const mockdata: { label: string; link?: string; icon: React.ElementType; initial
       { label: 'Releases schedule', link: '/' },
     ],
   },
-  { label: 'Analytics', icon: IconPresentationAnalytics, link: '/analytics' },
-
-  { label: 'Settings', icon: IconAdjustments, link: '/settings' },
   {
     label: 'Security',
     icon: IconLock,
@@ -48,7 +46,8 @@ const mockdata: { label: string; link?: string; icon: React.ElementType; initial
       { label: 'Recovery codes', link: '/' },
     ],
   },
-  { label: 'Documentation', icon: IconFileAnalytics, link: '/docs' },
+  { label: 'Documentation', icon: IconFileAnalytics, link: '/admin/docs' },
+  { label: 'Settings', icon: IconAdjustments, link: '/settings' },
 ];
 
 
