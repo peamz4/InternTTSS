@@ -3,15 +3,14 @@ import { Anchor, AppShell, Burger, Breadcrumbs } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { NavbarNested as Sidebar } from '@/components/Sidebar/NavbarNested';
 import Image from 'next/image';
-import TTSSlogo from '../../../public/logo/TTSSlogo.svg';
+import TTSSlogo from '../../../../public/logo/TTSSlogo.svg';
 import { TextInput } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { ThemeButton } from '@/components/ThemeButton/ThemeButton';
 import { LanguagePicker } from '@/components/LanguagePicker/LanguagePicker';
-import { StatsGrid } from '../../libs/StatsGrid/StatsGrid';
-import { StatsGroup } from '../../libs/StatsGroup/StatsGroup';
+import { StatsGrid } from '../../../libs/StatsGrid/StatsGrid';
+import { StatsGroup } from '../../../libs/StatsGroup/StatsGroup';
 import { ProgressCard } from '@/components/ProcessCard/ProcessCard';
-import { chart as ABC } from '@/components/OverviewChart/Chart';
 
 function Dashboard() {
     const [opened, { toggle }] = useDisclosure();
@@ -41,7 +40,7 @@ function Dashboard() {
                     opened={opened}
                     onClick={toggle}
                     hiddenFrom="sm"
-                    size="sm"
+                    size="md"
                 />
                 <div className='flex justify-between items-center w-full h-full p-6'>
                     <Image src={TTSSlogo} alt="TTSS Logo" width={180} height={150} className="xl:w-200 sm:h-100" />
@@ -69,7 +68,6 @@ function Dashboard() {
                 <h1 className='mb-1'>Dashboard</h1>
                 <Breadcrumbs className=''>{breadcrumbItems}</Breadcrumbs>
                 <hr style={{ border: '1px solid #ccc', width: '100%', marginTop: -5, borderColor: '#b81e16' }} />
-                {/* <ABC /> */}
                 <ProgressCard />
                 <StatsGrid />
                 <StatsGroup />

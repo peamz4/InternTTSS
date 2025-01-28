@@ -8,10 +8,10 @@ import { TextInput } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { ThemeButton } from '@/components/ThemeButton/ThemeButton';
 import { LanguagePicker } from '@/components/LanguagePicker/LanguagePicker';
-import { StatsGrid } from '../../libs/StatsGrid/StatsGrid';
-import { StatsGroup } from '../../libs/StatsGroup/StatsGroup';
+import { StatsGrid } from '../../../libs/StatsGrid/StatsGrid';
+import { StatsGroup } from '../../../libs/StatsGroup/StatsGroup';
 import { ProgressCard } from '@/components/ProcessCard/ProcessCard';
-import  chart  from '@/components/OverviewChart/Chart';
+
 
 function Settings() {
     const [opened, { toggle }] = useDisclosure();

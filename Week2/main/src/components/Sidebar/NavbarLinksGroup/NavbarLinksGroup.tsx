@@ -4,10 +4,11 @@ import { Box, Collapse, Group, Text, ThemeIcon, UnstyledButton } from '@mantine/
 import classes from './NavbarLinksGroup.module.css';
 
 interface LinksGroupProps {
-  icon: React.FC<React.ComponentProps<'svg'>>;
   label: string;
+  link: string;
+  icon: React.ElementType;
   initiallyOpened?: boolean;
-  links?: { label: string; link: string }[];
+  links?: Array<{ label: string; link: string }>;
 }
 
 export function LinksGroup({ icon: Icon, label, initiallyOpened, links }: LinksGroupProps) {
@@ -63,7 +64,7 @@ const mockdata = {
 export function NavbarLinksGroup() {
   return (
     <Box mih={220} p="md">
-      <LinksGroup {...mockdata} />
+      <LinksGroup link={''} {...mockdata} />
     </Box>
   );
 }

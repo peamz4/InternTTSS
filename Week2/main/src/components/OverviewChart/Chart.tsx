@@ -1,19 +1,18 @@
-import { BarChart } from '@mantine/charts';
+import { LineChart } from '@mantine/charts';
 import { data } from './data';
 
-export function chart() {
+export function CC() {
   return (
-    <BarChart
+    <LineChart
       h={300}
       data={data}
-      dataKey="month"
+      dataKey="date"
       series={[
-        { name: 'Smartphones', color: 'violet.6' },
-        { name: 'Laptops', color: 'blue.6' },
-        { name: 'Tablets', color: 'teal.6' },
+        { name: 'Apples', color: 'indigo.6' },
+        { name: 'Oranges', color: 'blue.6' },
+        { name: 'Tomatoes', color: 'teal.6' },
       ]}
-      tickLine="y"
+      curveType="linear"
     />
   );
 }
-
