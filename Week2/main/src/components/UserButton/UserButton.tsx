@@ -3,7 +3,7 @@ import { IconArrowsLeftRight, IconChevronRight, IconMessageCircle, IconPhoto, Ic
 import { Avatar, Box, Flex, Group, Menu, Stack, Text, UnstyledButton, em } from '@mantine/core';
 import { useHover, useMediaQuery } from '@mantine/hooks';
 import { cn } from '@/libs/utils';
-
+import classes from './Theme.module.css'
 interface ProfileButtonProps {
   profileHovered?: boolean;
   expanded?: boolean;
@@ -50,19 +50,12 @@ export function UserButton() {
           ref={profileRef}
           c={profileHovered ? 'white' : 'primary'}
           bg={profileHovered ? 'primary' : 'white'}
-          className={unstyledButtonClassName}
+          // className={classes.user}
+          // className={unstyledButtonClassName}
           onClick={() => setExpanded((prev) => !prev)}
         >
           <ProfileButton expanded={expanded} profileHovered={profileHovered} />
         </UnstyledButton>
-        <Stack gap="sm" className={`overflow-hidden transition-all duration-300 w-full border-solid border-b border-b-slate-200`} >
-          <Box c="primary" className="cursor-pointer">
-            Change Account
-          </Box>
-          <Box c="primary" className="cursor-pointer">
-            Log Out
-          </Box>
-        </Stack>
       </>
     )
   }
@@ -73,7 +66,10 @@ export function UserButton() {
         <UnstyledButton ref={profileRef}
           c={profileHovered ? 'white' : 'primary'}
           bg={profileHovered ? 'primary' : 'white'}
-          className={unstyledButtonClassName}>
+          className={unstyledButtonClassName}
+          // className={classes.user}
+          >
+            
           <ProfileButton profileHovered={profileHovered} />
         </UnstyledButton>
       </Menu.Target>

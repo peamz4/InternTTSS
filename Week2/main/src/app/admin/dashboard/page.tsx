@@ -37,9 +37,9 @@ function Dashboard() {
     <>
       <h1 className='mb-1'>Dashboard</h1>
       {/* <hr style={{ border: '1px solid #ccc', width: '100%', marginTop: -5, borderColor: '#b81e16' }} /> */}
-      {/* <ProgressCard />
+      <ProgressCard />
       <StatsGrid />
-      <StatsGroup /> */}
+      <StatsGroup />
     </>
     // <AppShell
     //     header={{ height: 50 }}

@@ -36,14 +36,14 @@ export default function AdminLayout({
   return (
     <AppShell
       padding={0}
-      header={{ height: 70 }}
+      header={{ height: 60 }}
       navbar={{
         width: 300,
         breakpoint: 'sm',
         collapsed: { mobile: !opened },
       }}
     >
-      <AppShell.Header className='flex justify-between items-center shadow-md'>
+      <AppShell.Header className='flex justify-between items-center shadow-sm'>
         <Burger
           opened={opened}
           onClick={toggle}
@@ -70,10 +70,16 @@ export default function AdminLayout({
         <NewSide />
       </AppShell.Navbar>
       <AppShell.Main>
-        <Breadcrumbs>{breadcrumbItems}</Breadcrumbs>
-        <Stack gap={'md'} p={'md'}>
+        <div>
+          <div className='w-full bg-[var(--mantine-color-primary-1)] dark:bg-[var(--mantine-color-primary)]   p-2'>
+        <Breadcrumbs >{breadcrumbItems}</Breadcrumbs>
+          </div>
+          <div className='p-4'>
+        <Stack gap={'md'} p={'md'} >
           {children}
         </Stack>
+          </div>
+        </div>
       </AppShell.Main>
     </AppShell>
   );

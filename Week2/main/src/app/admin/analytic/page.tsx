@@ -3,7 +3,7 @@ import React from 'react'
 const AnalyticPage = () => {
   return (
     <div>
-      AnalyticPage
+      <h1>Analytic</h1>
     </div>
   )
 }

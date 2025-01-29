@@ -24,21 +24,21 @@ interface LinkItem {
 const data: LinkItem[] = [
   { link: '/admin/dashboard', label: 'Dashboard', Icon: IconBellRinging },
   { link: '/admin/analytic', label: 'Analytic', Icon: IconReceipt2 },
-  { link: '/saas', label: 'SaaS', Icon: IconFingerprint },
+  { link: '/admin/saas', label: 'SaaS', Icon: IconFingerprint },
 ];
 
 const apps: LinkItem[] = [
-  { link: '/billing', label: 'Billing', Icon: IconReceipt2 },
-  { link: '/security', label: 'Security', Icon: IconFingerprint },
-  { link: '/ssh-keys', label: 'SSH Keys', Icon: IconKey },
-  { link: '/databases', label: 'Databases', Icon: IconDatabaseImport },
+  { link: '/admin/billing', label: 'Billing', Icon: IconReceipt2 },
+  { link: '/admin/security', label: 'Security', Icon: IconFingerprint },
+  { link: '/admin/ssh-keys', label: 'SSH Keys', Icon: IconKey },
+  { link: '/admin/databases', label: 'Databases', Icon: IconDatabaseImport },
   { link: '/admin/settings', label: 'Settings', Icon: IconSettings },
 ];
 
 const auth: LinkItem[] = [
-  { link: '/create-account', label: 'Create Account', Icon: IconKey },
-  { link: '/reset-password', label: 'Reset Password', Icon: IconFingerprint },
-  { link: '/user-manage', label: 'User Manage', Icon: IconDatabaseImport },
+  { link: '/admin/create-account', label: 'Create Account', Icon: IconKey },
+  { link: '/admin/reset-password', label: 'Reset Password', Icon: IconFingerprint },
+  { link: '/admin/user-manage', label: 'User Manage', Icon: IconDatabaseImport },
 ];
 
 const documentation: LinkItem[] = [
