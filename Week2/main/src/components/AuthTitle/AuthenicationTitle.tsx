@@ -35,7 +35,7 @@ import {
           Forgot password?
         </Anchor>
         </Group>
-        <Link href={'/dashboard'}>
+        <Link href={'/admin'}>
         <Button fullWidth mt="xl" style={{ backgroundColor: '#f06642' }}>
         Sign in
         </Button>

@@ -11,24 +11,33 @@ import { LanguagePicker } from '@/components/LanguagePicker/LanguagePicker';
 import { StatsGrid } from '../../../libs/StatsGrid/StatsGrid';
 import { StatsGroup } from '../../../libs/StatsGroup/StatsGroup';
 import { ProgressCard } from '@/components/ProcessCard/ProcessCard';
-import MonthlyChart from '@/components/MonthlyChart/MonthlyCHart';
+import { NewSide } from '@/components/NewSide/NewSide';
+import { usePathname } from 'next/navigation';
+import { useMemo } from 'react';
 
 function Dashboard() {
     const [opened, { toggle }] = useDisclosure();
-    const breadcrumbItems = [
-        { title: 'Admin', href: '/admin' },
-        { title: 'Dashboard', href: '/admin/dashboard' },
-      ].map((item) => (
-        <Anchor href={item.href} key={item.href} >
-          {item.title}
-        </Anchor>
-      ));
+   
+    const pathname = usePathname();
+
+    const breadcrumbItems = useMemo(() => {
+        const pathParts = pathname.split('/').filter(part => part);
+        return pathParts.map((part, index) => {
+            // biome-ignore lint/style/useTemplate: <explanation>
+            const href = '/' + pathParts.slice(0, index + 1).join('/');
+            return (
+                <Anchor href={href} key={href}>
+                    {part}
+                </Anchor>
+            );
+        });
+    }, [pathname]);
     
 
     return (
         
         <AppShell
-            header={{ height: 80 }}
+            header={{ height: 50 }}
             navbar={{
                 width: 300,
                 breakpoint: 'sm',
@@ -36,7 +45,7 @@ function Dashboard() {
             }}
             padding="md"
         >
-            <AppShell.Header className='flex justify-between items-center shadow-md'>
+            <AppShell.Header className='flex justify-between items-center shadow-md z-100'>
                 <Burger
                     opened={opened}
                     onClick={toggle}
@@ -44,30 +53,23 @@ function Dashboard() {
                     size="md"
                 />
                 <div className='flex justify-between items-center w-full h-full p-6'>
-                    <Image src={TTSSlogo} alt="TTSS Logo" width={180} height={150} className="xl:w-200 sm:h-100" />
+                    <Image src={TTSSlogo} alt="TTSS Logo" width={180} height={45} className="xl:w-200 sm:h-100 bg-gray-100 dark:bg-slate-500 rounded-md" />
 
                     <div className='flex items-center gap-2  '>
-                        <TextInput
-                            placeholder="Search..."
-                            rightSection={<IconSearch size={16} />}
-                            radius="lg"
-                            size="sm"
-                            className="sm:size-md hidden xl:block"
-                        />
                         <LanguagePicker />
                         <ThemeButton />
                     </div>
                 </div>
             </AppShell.Header>
 
-            <AppShell.Navbar p="md" className="shadow-md">
-                <Sidebar />
+            <AppShell.Navbar p="md" className="shadow-lg z-10 bg-[var(--mantine-color-primary-5)]">
+                <NewSide />
             </AppShell.Navbar>
 
             <AppShell.Main>
+                <Breadcrumbs className=''>{breadcrumbItems}</Breadcrumbs>
                 <div className='flex flex-col gap-4 p-6'>
                 <h1 className='mb-1'>Dashboard</h1>
-                <Breadcrumbs className=''>{breadcrumbItems}</Breadcrumbs>
                 <hr style={{ border: '1px solid #ccc', width: '100%', marginTop: -5, borderColor: '#b81e16' }} />
                 <ProgressCard />
                 <StatsGrid />

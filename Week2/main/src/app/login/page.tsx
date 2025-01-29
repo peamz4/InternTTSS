@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
     }, []);
 
     const handleClick = () => {
-        window.location.href = '/admin/dashboard';
+        window.location.href = '/admin';
     };
 
     return (

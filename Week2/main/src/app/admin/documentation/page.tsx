@@ -8,6 +8,7 @@ import { TextInput } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 import { ThemeButton } from '@/components/ThemeButton/ThemeButton';
 import { LanguagePicker } from '@/components/LanguagePicker/LanguagePicker';
+import { NewSide } from '@/components/NewSide/NewSide';
 
 function Dashboard() {
     const [opened, { toggle }] = useDisclosure();
@@ -24,7 +25,7 @@ function Dashboard() {
     return (
 
         <AppShell
-            header={{ height: 80 }}
+            header={{ height: 50 }}
             navbar={{
                 width: 300,
                 breakpoint: 'sm',
@@ -32,7 +33,7 @@ function Dashboard() {
             }}
             padding="md"
         >
-            <AppShell.Header className='flex justify-between items-center shadow-md'>
+            <AppShell.Header className='flex justify-between items-center shadow-md z-100'>
                 <Burger
                     opened={opened}
                     onClick={toggle}
@@ -40,30 +41,23 @@ function Dashboard() {
                     size="md"
                 />
                 <div className='flex justify-between items-center w-full h-full p-6'>
-                    <Image src={TTSSlogo} alt="TTSS Logo" width={180} height={150} className="xl:w-200 sm:h-100" />
+                    <Image src={TTSSlogo} alt="TTSS Logo" width={180} height={45} className="xl:w-200 sm:h-100 bg-gray-100 dark:bg-slate-500 rounded-md" />
 
                     <div className='flex items-center gap-2  '>
-                        <TextInput
-                            placeholder="Search..."
-                            rightSection={<IconSearch size={16} />}
-                            radius="lg"
-                            size="sm"
-                            className="sm:size-md hidden xl:block"
-                        />
                         <LanguagePicker />
                         <ThemeButton />
                     </div>
                 </div>
             </AppShell.Header>
 
-            <AppShell.Navbar p="md" className="shadow-md">
-                <Sidebar />
+            <AppShell.Navbar p="md" className="shadow-lg z-10 bg-[var(--mantine-color-primary-5)]">
+                <NewSide />
             </AppShell.Navbar>
 
             <AppShell.Main>
+                    <Breadcrumbs className=''>{breadcrumbItems}</Breadcrumbs>
                 <div className='flex flex-col gap-4 p-6'>
                     <h1 className='mb-1'>Documentation</h1>
-                    <Breadcrumbs className=''>{breadcrumbItems}</Breadcrumbs>
                     <hr style={{ border: '1px solid #ccc', width: '100%', marginTop: -5, borderColor: '#b81e16' }} />
                     <h2 className='mt-1 mb-1'>Lorem ipsum dolor</h2>
                     <p className=''>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur commodi tempore esse dolor magni at laborum ratione,
