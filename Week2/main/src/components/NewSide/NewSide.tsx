@@ -11,75 +11,76 @@ import {
   IconReceipt2,
   IconSettings,
 } from '@tabler/icons-react';
-import { Group } from '@mantine/core';
+import { Box, Flex, Group } from '@mantine/core';
 import classes from './NavbarSimpleColored.module.css';
 import { UserButton } from '@/components/UserButton/UserButton';
 
-const data = [
-  { link: '/admin/dashboard', label: 'Dashboard', icon: IconBellRinging },
-  { link: '/analytic', label: 'Analytic', icon: IconReceipt2 },
-  { link: '/saas', label: 'SaaS', icon: IconFingerprint },
+interface LinkItem {
+  link: string;
+  label: string;
+  Icon: React.ComponentType<{ className?: string; stroke?: number }>;
+}
+
+const data: LinkItem[] = [
+  { link: '/admin/dashboard', label: 'Dashboard', Icon: IconBellRinging },
+  { link: '/admin/analytic', label: 'Analytic', Icon: IconReceipt2 },
+  { link: '/saas', label: 'SaaS', Icon: IconFingerprint },
 ];
 
-const apps = [
-  { link: '/billing', label: 'Billing', icon: IconReceipt2 },
-  { link: '/security', label: 'Security', icon: IconFingerprint },
-  { link: '/ssh-keys', label: 'SSH Keys', icon: IconKey },
-  { link: '/databases', label: 'Databases', icon: IconDatabaseImport },
-  { link: '/admin/settings', label: 'Settings', icon: IconSettings },
+const apps: LinkItem[] = [
+  { link: '/billing', label: 'Billing', Icon: IconReceipt2 },
+  { link: '/security', label: 'Security', Icon: IconFingerprint },
+  { link: '/ssh-keys', label: 'SSH Keys', Icon: IconKey },
+  { link: '/databases', label: 'Databases', Icon: IconDatabaseImport },
+  { link: '/admin/settings', label: 'Settings', Icon: IconSettings },
 ];
 
-const auth = [
-  { link: '/create-account', label: 'Create Account', icon: IconKey },
-  { link: '/reset-password', label: 'Reset Password', icon: IconFingerprint },
-  { link: '/user-manage', label: 'User Manage', icon: IconDatabaseImport },
+const auth: LinkItem[] = [
+  { link: '/create-account', label: 'Create Account', Icon: IconKey },
+  { link: '/reset-password', label: 'Reset Password', Icon: IconFingerprint },
+  { link: '/user-manage', label: 'User Manage', Icon: IconDatabaseImport },
 ];
 
-const documentation = [
-  { link: '/admin/documentation', label: 'Documentation', icon: IconFileAnalytics },
+const documentation: LinkItem[] = [
+  { link: '/admin/documentation', label: 'Documentation', Icon: IconFileAnalytics },
 ];
 
 export function NewSide() {
   const pathname = usePathname(); // ✅ อ่าน URL ปัจจุบัน
-
-  interface LinkItem {
-    link: string;
-    label: string;
-    icon: React.ComponentType<{ className?: string; stroke?: number }>;
-  }
-
   const generateLinks = (links: LinkItem[]) =>
-    links.map((item: LinkItem) => {
-      const isActive = pathname.startsWith(item.link); // ✅ ตรวจสอบ active
+    links?.map(({ link, label, Icon }) => {
+      const isActive = pathname.startsWith(link); // ✅ ตรวจสอบ active
 
       return (
         <Link
-          href={item.link}
-          key={item.label}
+          href={link}
+          key={label}
           className={classes.link}
           data-active={isActive ? "true" : undefined}
         >
-          <item.icon className={classes.linkIcon} stroke={1.5} />
-          <span>{item.label}</span>
+          <Icon className={classes.linkIcon} stroke={1.5} />
+          <Box component="span">{label}</Box>
         </Link>
       );
     });
 
   return (
-    <div className={`${classes.container} overflow-y-auto`}>
-      <div className={classes.navbarMain}>
-        <Group className="sticky z-10 top-0 bg-orange-600" align="center">
+    <Box className="overflow-y-auto">
+      <Flex flex={1} direction={"column"}>
+        <Group className="sticky z-10 top-0" align="center">
           <UserButton />
         </Group>
-        <p className="mb-2 text-white">Dashboard</p>
-        {generateLinks(data)}
-        <p className="mb-2 mt-2 text-white">Apps</p>
-        {generateLinks(apps)}
-        <p className="mb-2 mt-2 text-white">Authentication</p>
-        {generateLinks(auth)}
-        <p className="mb-2 mt-2 text-white">Documentation</p>
-        {generateLinks(documentation)}
-      </div>
-    </div>
+        <Flex flex={1} direction={"column"} p={"sm"}>
+          <Box c={'gray.6'} className="mb-2">Dashboard</Box>
+          {generateLinks(data)}
+          <Box c={'gray.6'} className="mb-2 mt-2">Apps</Box>
+          {generateLinks(apps)}
+          <Box c={'gray.6'} className="mb-2 mt-2">Authentication</Box>
+          {generateLinks(auth)}
+          <Box c={'gray.6'} className="mb-2 mt-2">Documentation</Box>
+          {generateLinks(documentation)}
+        </Flex>
+      </Flex>
+    </Box>
   );
 }

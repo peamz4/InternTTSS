@@ -34,13 +34,22 @@
   align-items: center;
   text-decoration: none;
   font-size: var(--mantine-font-size-sm);
-  color: var(--mantine-color-white);
+  color: var(--mantine-color-primary-4);
   padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
   border-radius: var(--mantine-radius-sm);
   font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  margin: 1px 0;
+
+  .linkIcon {
+    color: var(--mantine-color-primary-4);
+    margin-right: var(--mantine-spacing-sm);
+    width: 25px;
+    height: 25px;
+  }
 
   @mixin hover {
-    background-color: var(--mantine-color-primary);
+    background-color: var(--mantine-color-primary-4);
     color: var(--mantine-color-white);
 
     .linkIcon {
@@ -51,25 +60,24 @@
   &[data-active] {
     &,
     &:hover {
-      box-shadow: var(--mantine-shadow-sm);
-      background-color: var(--mantine-color-white);
-      color: var(--mantine-color-orange-9);
+      background-color: var(--mantine-color-primary-4);
+      color: var(--mantine-color-white);
 
       .linkIcon {
-        color: var(--mantine-color-orange-9);
+        color: var(--mantine-color-white);
       }
     }
   }
 }
 
-.linkIcon {
+/* .linkIcon {
   color: var(--mantine-color-orange-1);
   margin-right: var(--mantine-spacing-sm);
   width: 25px;
   height: 25px;
-}
+} */
 
-.link {
+/* .link {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -79,14 +87,14 @@
   border-radius: var(--mantine-radius-sm);
   font-weight: 500;
   transition: background-color 0.2s, color 0.2s;
-}
+} */
 
-.link:hover {
+/* .link:hover {
   background-color: var(--mantine-color-orange-7);
   color: var(--mantine-color-white);
-}
+} */
 
-.linkIcon {
+/* .linkIcon {
   color: var(--mantine-color-orange-1);
   margin-right: var(--mantine-spacing-sm);
   width: 25px;
@@ -101,4 +109,4 @@
 
 .link[data-active="true"] .linkIcon {
   color: var(--mantine-color-orange-9) !important;
-}
+} */

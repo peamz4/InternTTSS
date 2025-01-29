@@ -4,7 +4,7 @@ import { MantineProvider, createTheme } from '@mantine/core'
 import React, { type ReactNode } from 'react'
 const theme = createTheme({
   primaryColor: 'primary',
-  primaryShade: { dark: 9 ,light: 3},
+  primaryShade: { dark: 9, light: 4 },
   defaultRadius: 'md',
   colors: {
     primary: generateColors('#f06642'),
