@@ -14,13 +14,13 @@ const AdminPage = () => {
 
   return (
     <>
-      <div className='flex flex-col gap-4 p-6 items-center'>
-        <h1 className='mb-1'>Admin Menu</h1>
-        <Breadcrumbs>{breadcrumbItems}</Breadcrumbs>
+      <div className='justify-center flex flex-col gap-4 p-6 items-center'>
+        <h1 className='mt-0'>Admin Menu</h1>
       </div>
-      <div className='mt-10'>
+      <div className=''>
         <HexagonNavigation />
       </div>
+       
     </>
   );
 }

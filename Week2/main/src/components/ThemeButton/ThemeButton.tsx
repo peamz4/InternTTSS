@@ -14,7 +14,8 @@ export function ThemeButton() {
         variant="default"
         size="xl"
         aria-label="Toggle color scheme"
-        className='rounded-md'
+        className='rounded-md border-[var(--mantine-color-gray-2)] dark:border-0'
+        
       >
         <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
         <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />

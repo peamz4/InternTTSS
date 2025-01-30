@@ -34,7 +34,7 @@
   align-items: center;
   text-decoration: none;
   font-size: var(--mantine-font-size-sm);
-  color: var(--mantine-color-primary-4);
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-white));
   padding: var(--mantine-spacing-xs) var(--mantine-spacing-sm);
   border-radius: var(--mantine-radius-sm);
   font-weight: 500;
@@ -42,7 +42,8 @@
   margin: 1px 0;
 
   .linkIcon {
-    color: var(--mantine-color-primary-4);
+    /* color: var(--mantine-color-primary-4); */
+    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-white));
     margin-right: var(--mantine-spacing-sm);
     width: 25px;
     height: 25px;

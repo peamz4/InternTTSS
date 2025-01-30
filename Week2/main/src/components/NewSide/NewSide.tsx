@@ -71,14 +71,17 @@ export function NewSide() {
           <UserButton />
         </Group>
         <Flex flex={1} direction={"column"} p={"sm"}>
-          <Box c={'gray.6'} className="mb-2">Dashboard</Box>
+          <Box c={'var(--mantine-color-primary-4)'} className="mb-2 font-semibold">Dashboard</Box>
           {generateLinks(data)}
-          <Box c={'gray.6'} className="mb-2 mt-2">Apps</Box>
+          <Box c={'var(--mantine-color-primary-4)'} className="mb-2 mt-2 font-semibold">Apps</Box>
           {generateLinks(apps)}
-          <Box c={'gray.6'} className="mb-2 mt-2">Authentication</Box>
+          <Box c={'var(--mantine-color-primary-4)'} className="mb-2 mt-2 font-semibold">Authentication</Box>
           {generateLinks(auth)}
-          <Box c={'gray.6'} className="mb-2 mt-2">Documentation</Box>
+          <Box c={'var(--mantine-color-primary-4)'} className="mb-2 mt-2 font-semibold">Documentation</Box>
           {generateLinks(documentation)}
+          <div className='h-12'>
+
+          </div>
         </Flex>
       </Flex>
     </Box>
