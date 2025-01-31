@@ -42,7 +42,7 @@ export default function AdminLayout({
           <Anchor
             href={isLast ? undefined : href}
             style={{
-              color: isLast ? 'grey' : 'orange',
+              color: isLast ? 'grey' : 'var(--mantine-color-primary-4)',
               pointerEvents: isLast ? 'none' : 'auto',
               textDecoration: 'none',
             }}

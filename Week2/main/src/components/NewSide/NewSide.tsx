@@ -113,12 +113,12 @@ export function NewSide() {
     });
 
   return (
-    <Box className={classes.overflowYAuto}> 
-      <Flex direction="column" flex={1}>
+    <Box className="overflow-y-auto ">
+      <Flex flex={1} direction={"column"}>
         <Group className={classes.header} align="center">
           <UserButton />
         </Group>
-        <Flex direction="column" flex={1} p="sm">
+        <Flex flex={1} direction={"column"} p={"sm"}>
           <Box className={classes.category}>Dashboard</Box>
           {generateLinks(data)}
           <Box className={classes.category}>Apps</Box>
@@ -127,6 +127,8 @@ export function NewSide() {
           {generateLinks(auth)}
           <Box className={classes.category}>Documentation</Box>
           {generateLinks(documentation)}
+          <div className="h-20">
+          </div>
         </Flex>
       </Flex>
     </Box>

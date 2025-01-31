@@ -6,6 +6,13 @@
   flex-direction: column;
 }
 
+.header {
+  padding-bottom: var(--mantine-spacing-md);
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+  z-index: 1000;
+}
 
 .navbarMain {
   flex: 1;
