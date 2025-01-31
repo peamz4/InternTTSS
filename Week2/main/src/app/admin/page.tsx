@@ -1,16 +1,9 @@
 'use client';
 import { Anchor, AppShell, Breadcrumbs, Burger } from "@mantine/core";
-import HexagonNavigation from '@/components/HexagonNavigation/HexagonNavigation';
+import HexagonNavigation from '../../components/HexagonNavigation/HexagonNavigation';
+import React from "react";
 
 const AdminPage = () => {
-  const breadcrumbItems = [
-    { title: 'Admin', href: '/admin' },
-    { title: 'Dashboard', href: '/admin/dashboard' },
-  ].map((item) => (
-    <Anchor href={item.href} key={item.href}>
-      {item.title}
-    </Anchor>
-  ));
 
   return (
     <>

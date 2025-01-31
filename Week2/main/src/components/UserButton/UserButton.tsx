@@ -59,7 +59,7 @@ export function UserButton() {
               <ProfileButton expanded={expanded} profileHovered={profileHovered} />
             </UnstyledButton>
           </Menu.Target>
-          <Menu.Dropdown className='w-full'>
+          <Menu.Dropdown className='w-full bg-slate-300'>
             <Menu.Label>Application</Menu.Label>
             <Menu.Item leftSection={<IconSettings size={14} />}>
               Settings
@@ -70,16 +70,7 @@ export function UserButton() {
             <Menu.Item leftSection={<IconPhoto size={14} />}>
               Gallery
             </Menu.Item>
-            <Menu.Item
-              leftSection={<IconSearch size={14} />}
-              rightSection={
-                <Text size="xs" c="dimmed">
-                  ⌘K
-                </Text>
-              }
-            >
-              Search
-            </Menu.Item>
+           
 
             <Menu.Divider />
 
