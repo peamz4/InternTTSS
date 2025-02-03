@@ -91,7 +91,7 @@ export default function AdminLayout({
       </AppShell.Navbar>
       <AppShell.Main>
         <div>
-          <div className='w-full bg-transparent shadow-md px-4 p-2'>
+          <div className='w-full bg-transparent shadow-md px-4 p-2 z-50'>
             {/* Breadcrumbs Component */}
             <Breadcrumbs>{breadcrumbItems}</Breadcrumbs>
           </div>
