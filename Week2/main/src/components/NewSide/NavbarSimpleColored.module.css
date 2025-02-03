@@ -90,6 +90,7 @@
   padding-left: 1rem;
   display: flex;
   flex-direction: column;
+  transition: transform 200ms ease;
 }
 
 .subLink {
@@ -99,7 +100,7 @@
   gap: 8px;
   text-decoration: none;
   color: var(--mantine-color-primary-4);
-  transition: color 0.2s ease;
+  transition: transform 200ms ease;
   border-radius: var(--mantine-radius-sm);
 }
 
