@@ -17,6 +17,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        'ttss': "url('/images/ttsslogo.svg')",
+      },
     },
   },
   plugins: [],

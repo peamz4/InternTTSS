@@ -1,0 +1,15 @@
+.user {
+    display: block;
+    width: 100%;
+    color: light-dark(var(--mantine-color-primary-6), var(--mantine-color-primary-3));
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    border-bottom: 1px solid light-dark(var(--mantine-color-primary-4), var(--mantine-color-primary-7));
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
+  
+    @mixin hover {
+      background-color: light-dark(var(--mantine-color-primary-5), var(--mantine-color-primary-9)) ;
+      opacity: 0.9;
+    }
+  }
