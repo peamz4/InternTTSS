@@ -1,0 +1,27 @@
+.value {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  }
+  
+ 
+
+  .diff {
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .icon {
+    color: light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-3));
+  }
+  
+  .title {
+    font-weight: 700;
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    text-transform: uppercase;
+  }
+
+
