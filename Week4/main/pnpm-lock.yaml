@@ -96,6 +96,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.2.0
+      '@tabler/icons':
+        specifier: ^3.29.0
+        version: 3.29.0
       '@types/node':
         specifier: ^20
         version: 20.17.13
@@ -638,6 +641,9 @@ packages:
 
   '@tabler/icons@3.28.1':
     resolution: {integrity: sha512-h7nqKEvFooLtFxhMOC1/2eiV+KRXhBUuDUUJrJlt6Ft6tuMw2eU/9GLQgrTk41DNmIEzp/LI83K9J9UUU8YBYQ==}
+
+  '@tabler/icons@3.29.0':
+    resolution: {integrity: sha512-VWNINymdmhay3MDvWVREmRwuWLSrX3YiInKvs5L4AHRF4bAfJabLlEReE0BW/XFsBt22ff8/C8Eam/LXlF97mA==}
 
   '@tiptap/core@2.11.2':
     resolution: {integrity: sha512-Z437c/sQg31yrRVgLJVkQuih+7Og5tjRx6FE/zE47QgEayqQ9yXH0LrTAbPiY6IfY1X+f2A0h3e5Y/WGD6rC3Q==}
@@ -2988,6 +2994,8 @@ snapshots:
       react: 19.0.0
 
   '@tabler/icons@3.28.1': {}
+
+  '@tabler/icons@3.29.0': {}
 
   '@tiptap/core@2.11.2(@tiptap/pm@2.11.2)':
     dependencies:

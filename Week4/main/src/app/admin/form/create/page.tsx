@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { type SetStateAction, useState } from "react";
 import {
   Container,
   Card,
@@ -73,7 +73,7 @@ export default function GoogleFormPage() {
           </Stack>
         </Card>
 
-        {form.values.questions.map((q, index) => (
+        {form.values.questions.map((q: { question: string; type: string; options: string[]; }, index: SetStateAction<number | null>) => (
           <div key={`${q.question}-${index}`} className="relative">
             {selectedIndex === index && (
               <div className="absolute  right-[-50] z-10">
@@ -96,7 +96,7 @@ export default function GoogleFormPage() {
               <Stack>
                 <Group>
                   <TextInput
-                    label={`Question ${index + 1}`}
+                    label={`Question ${typeof index === 'number' ? index + 1 : ''}`}
                     placeholder="Enter question"
                     {...form.getInputProps(`questions.${index}.question`)}
                     className="flex-1"
@@ -116,6 +116,34 @@ export default function GoogleFormPage() {
                         <Checkbox
                           label={<TextInput placeholder="Option" {...form.getInputProps(`questions.${index}.options.${optIndex}`)} />}
                         />
+                        {q.options.length > 1 && (
+                          <Button size="xs" color="red" onClick={() => removeOption(index, optIndex)}>X</Button>
+                        )}
+                      </Group>
+                    ))}
+                    <Button onClick={() => addOption(index)} variant="light">Add Option</Button>
+                  </Stack>
+                )}
+                {q.type === "Single choice" && (
+                  <Stack>
+                    {q.options.map((option, optIndex) => (
+                      <Group key={`${option}-${index}-${optIndex}`}>
+                        <Radio
+                          label={<TextInput placeholder="Option" {...form.getInputProps(`questions.${index}.options.${optIndex}`)} />}
+                        />
+                        {q.options.length > 1 && (
+                          <Button size="xs" color="red" onClick={() => removeOption(index, optIndex)}>X</Button>
+                        )}
+                      </Group>
+                    ))}
+                    <Button onClick={() => addOption(index)} variant="light">Add Option</Button>
+                  </Stack>
+                )}
+                {q.type === "Dropdown" && (
+                  <Stack>
+                    {q.options.map((option, optIndex) => (
+                      <Group key={`${option}-${index}-${optIndex}`}>
+                        <TextInput placeholder="Option" {...form.getInputProps(`questions.${index}.options.${optIndex}`)} />
                         {q.options.length > 1 && (
                           <Button size="xs" color="red" onClick={() => removeOption(index, optIndex)}>X</Button>
                         )}

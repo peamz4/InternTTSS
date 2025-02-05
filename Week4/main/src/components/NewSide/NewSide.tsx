@@ -13,6 +13,9 @@ import {
   IconSettings,
   IconMail,
   IconChevronDown,
+  IconForms,
+  IconPlus,
+  IconMailbox
 } from "@tabler/icons-react";
 import { Box, Flex, Group } from "@mantine/core";
 import classes from "./NavbarSimpleColored.module.css";
@@ -40,6 +43,15 @@ const apps: LinkItem[] = [
       { link: "/admin/email/inbox", label: "Inbox", Icon: IconMail },
       { link: "/admin/email/details", label: "Details", Icon: IconMail },
       { link: "/admin/email/draft", label: "Draft", Icon: IconMail },
+    ],
+  },
+  {
+    link: "/admin/survey",
+    label: "Form",
+    Icon: IconForms,
+    links: [
+      { link: "/admin/form/create", label: "Create", Icon: IconPlus },
+      { link: "/admin/form/response", label: "Response", Icon: IconMailbox},
     ],
   },
   { link: "/admin/billing", label: "Billing", Icon: IconReceipt2 },
