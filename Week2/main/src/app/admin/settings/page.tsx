@@ -1,124 +1,50 @@
-"use client";
-import { Anchor, AppShell, Burger, TextInput, Group, Button, Card, Grid, Breadcrumbs, Paper, Text } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { NavbarNested as Sidebar } from '@/components/Sidebar/NavbarNested';
-import Image from 'next/image';
-import TTSSlogo from '../../../../public/logo/TTSSlogo.svg';
-import { IconSearch } from '@tabler/icons-react';
-import { ThemeButton } from '@/components/ThemeButton/ThemeButton';
-import { LanguagePicker } from '@/components/LanguagePicker/LanguagePicker';
+'use client';
 
-function SettingsPage() {
-    const [opened, { toggle }] = useDisclosure();
-    const breadcrumbItems = [
-        { title: 'Admin', href: '/' },
-        { title: 'Settings', href: '/admin/settings' },
-    ].map((item) => (
-        <Anchor href={item.href} key={item.href}>
-            {item.title}
-        </Anchor>
-    ));
+import { useState } from 'react';
+import { TextInput, Button, Paper, Group, Title, Select, Textarea } from '@mantine/core';
+import { useForm } from '@mantine/form';
 
-    return (
-        <AppShell
-            header={{ height: 80 }}
-            navbar={{
-                width: 300,
-                breakpoint: 'sm',
-                collapsed: { mobile: !opened },
-            }}
-            padding="md"
-        >
-            <AppShell.Header className="flex justify-between items-center shadow-md">
-                <Burger
-                    opened={opened}
-                    onClick={toggle}
-                    hiddenFrom="sm"
-                    size="md"
-                />
-                <div className="flex justify-between items-center w-full h-full p-6">
-                    <Image src={TTSSlogo} alt="TTSS Logo" width={180} height={150} className="xl:w-200 sm:h-100" />
+export default function PersonalInfoSettings() {
+  const form = useForm({
+    initialValues: {
+      name: '',
+      email: '',
+      phone: '',
+      address: '',
+      gender: '',
+      bio: '',
+    },
+    validate: {
+      name: (value) => (value.length < 2 ? 'Name must be at least 2 characters' : null),
+      email: (value) => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? null : 'Invalid email'),
+      phone: (value) => (/^\+?[0-9]{7,15}$/.test(value) ? null : 'Invalid phone number'),
+      address: (value) => (value.length < 5 ? 'Address must be at least 5 characters' : null),
+      bio: (value) => (value.length > 200 ? 'Bio must be less than 200 characters' : null),
+    },
+  });
 
-                    <div className="flex items-center gap-2">
-                        <TextInput
-                            placeholder="Search..."
-                            rightSection={<IconSearch size={16} />}
-                            radius="lg"
-                            size="sm"
-                            className="sm:size-md hidden xl:block"
-                        />
-                        <LanguagePicker />
-                        <ThemeButton />
-                    </div>
-                </div>
-            </AppShell.Header>
-
-            <AppShell.Navbar p="md" className="shadow-md">
-                <Sidebar />
-            </AppShell.Navbar>
-
-            <AppShell.Main>
-                <div className="flex flex-col gap-4 p-6">
-                    <h1 className="mb-1">Settings</h1>
-                    <Breadcrumbs>{breadcrumbItems}</Breadcrumbs>
-                    <hr style={{ border: '1px solid #ccc', width: '100%', marginTop: -5, borderColor: '#b81e16' }} />
-
-                    {/* Account Information */}
-                    <div className='flex flex-col xl:flex-row gap-4 p-6 items-center'>
-                        <div>
-                            <Card shadow="sm" padding="lg" className="mt-4">
-                                <h2 className="text-lg font-semibold mb-4">Account Information</h2>
-                                <Grid gutter="md">
-                                    {/* Left Side - Personal Information */}
-                                    <Grid.Col span={{ base: 12, sm: 6 }}>
-                                        <TextInput label="First Name" placeholder="Enter your first name" />
-                                        <TextInput label="Last Name" placeholder="Enter your last name" className="mt-4" />
-                                        <TextInput label="Email" placeholder="Enter your email" className="mt-4" />
-                                        <TextInput label="Address" placeholder="Enter your address" className="mt-4" />
-                                    </Grid.Col>
-
-                                    {/* Right Side - Additional Info */}
-                                    <Grid.Col span={{ base: 12, sm: 6 }}>
-                                        <TextInput label="Apartment/Studio/Floor" placeholder="Apartment, Studio, or Floor" />
-                                        <TextInput label="City" placeholder="Enter your city" className="mt-4" />
-                                        <TextInput label="State" placeholder="Enter your state" className="mt-4" />
-                                        <TextInput label="Zip Code" placeholder="Enter your zip code" className="mt-4" />
-                                    </Grid.Col>
-                                </Grid>
-                            </Card>
-                        </div>
-
-                        {/* Mockup for Theme and Language Settings */}
-                        <div className="flex gap-4 mt-6 flex-wrap">
-  <Card shadow="sm" padding="lg" className="flex-1">
-    <h3 className="text-lg font-semibold">Theme Settings</h3>
-    <Paper p="md" withBorder className="mt-4">
-      <Text>Choose your preferred theme for the application:</Text>
-      <Button variant="outline" color="blue" className="mt-4">Dark Mode</Button>
-      <Button variant="outline" color="blue" className="mt-2">Light Mode</Button>
+  return (
+    <Paper shadow="sm" p="xl" radius="md" withBorder>
+      <Title order={2} mb="md">
+        Personal Information
+      </Title>
+      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+        <TextInput label="Full Name" placeholder="John Doe" {...form.getInputProps('name')} mb="md" />
+        <TextInput label="Email" placeholder="example@mail.com" {...form.getInputProps('email')} mb="md" />
+        <TextInput label="Phone" placeholder="+123456789" {...form.getInputProps('phone')} mb="md" />
+        <TextInput label="Address" placeholder="123 Main St, City" {...form.getInputProps('address')} mb="md" />
+        <Select
+          label="Gender"
+          placeholder="Select your gender"
+          data={[{ value: 'male', label: 'Male' }, { value: 'female', label: 'Female' }, { value: 'other', label: 'Other' }]}
+          {...form.getInputProps('gender')}
+          mb="md"
+        />
+        <Textarea label="Bio" placeholder="Tell us about yourself" {...form.getInputProps('bio')} mb="md" />
+        <Group align="right" mt="md">
+          <Button type="submit">Save Changes</Button>
+        </Group>
+      </form>
     </Paper>
-  </Card>
-
-  <Card shadow="sm" padding="lg" className="flex-1">
-    <h3 className="text-lg font-semibold">Language Settings</h3>
-    <Paper p="md" withBorder className="mt-4">
-      <Text>Select your preferred language:</Text>
-      <Button variant="outline" color="blue" className="mt-4">English</Button>
-      <Button variant="outline" color="blue" className="mt-2">Thai</Button>
-    </Paper>
-  </Card>
-</div>
-
-                    </div>
-
-                    {/* Save Changes Button */}
-                    <Button fullWidth className="mt-4" color="blue">
-                        Save Changes
-                    </Button>
-                </div>
-            </AppShell.Main>
-        </AppShell>
-    );
+  );
 }
-
-export default SettingsPage;

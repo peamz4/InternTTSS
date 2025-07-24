@@ -1,63 +1,24 @@
-"use client";
-import { Anchor, AppShell, Burger, Breadcrumbs } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import Image from 'next/image';
-import TTSSlogo from '../../../public/logo/TTSSlogo.svg';
-import { TextInput } from '@mantine/core';
-import { IconSearch } from '@tabler/icons-react';
-import { ThemeButton } from '@/components/ThemeButton/ThemeButton';
-import { LanguagePicker } from '@/components/LanguagePicker/LanguagePicker';
-import HexagonNavigation from '@/components/HexagonNavigation/HexagonNavigation';
-function Dashboard() {
-    const [opened, { toggle }] = useDisclosure();
-    const breadcrumbItems = [
-        { title: 'Admin', href: '/admin' },
-        { title: 'Dashboard', href: '/admin/dashboard' },
-    ].map((item) => (
-        <Anchor href={item.href} key={item.href}>
-            {item.title}
-        </Anchor>
-    ));
+'use client';
+import { Anchor, AppShell, Breadcrumbs, Burger } from "@mantine/core";
+import HexagonNavigation from '../../components/HexagonNavigation/HexagonNavigation';
+import React from "react";
 
-    return (
-        <AppShell
-            header={{ height: 80 }}
-            padding="md"
-        >
-            <AppShell.Header className='flex justify-between items-center shadow-md'>
-                <Burger
-                    opened={opened}
-                    onClick={toggle}
-                    hiddenFrom="sm"
-                    size="md"
-                />
-                <div className='flex justify-between items-center w-full h-full p-6'>
-                    <Image src={TTSSlogo} alt="TTSS Logo" width={180} height={150} className="xl:w-200 sm:h-100" />
-                    <div className='flex items-center gap-2'>
-                        <TextInput
-                            placeholder="Search..."
-                            rightSection={<IconSearch size={16} />}
-                            radius="lg"
-                            size="sm"
-                            className="sm:size-md hidden xl:block"
-                        />
-                        <LanguagePicker />
-                        <ThemeButton />
-                    </div>
-                </div>
-            </AppShell.Header>
+const AdminPage = () => {
 
-            <AppShell.Main>
-                <div className='flex flex-col gap-4 p-6 items-center'>
-                    <h1 className='mb-1'>Admin Menu</h1>
-                    <Breadcrumbs>{breadcrumbItems}</Breadcrumbs>
-                </div>
-                <div className='mt-10'>
-                <HexagonNavigation />
-                </div>
-            </AppShell.Main>
-        </AppShell>
-    );
+  return (
+    <>
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-ttss bg-repeat bg-[length:200px] opacity-5"> </div>
+      <div className='justify-center flex flex-col gap-4 p-6 items-center'>
+        <h1 className='mt-0 font-bold'>Admin</h1>
+        <h2 className="m-0">Where would you like to go? </h2>
+      </div>
+      <div className=''>
+        <HexagonNavigation />
+      </div>
+       
+    </>
+  );
 }
 
-export default Dashboard;
+export default AdminPage;
